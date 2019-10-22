@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQueryUI案例</title>
+	<!-- 第一步： 引入jQuery
+	第二步：引入jQueryUI的 js库
+	第三步：　引入jQueryUI 的css样式
+	第四步：照人家的demo去写 -->
+	<link rel="stylesheet" href="jQueryUI/jquery-ui.min.css">
+	
+	<script src="jquery-1.11.3.min.js"></script>
+	<script src="jQueryUI/jquery-ui.min.js"></script>
+	
+	<style>
+		.wrap div {
+			height: 300px;
+			background-color: #ccc;
+		}
+	</style>
+
+	<script>
+		$(function () {
+			$(".wrap").tabs();
+			$(".dialog").dialog();
+		});
+	</script>
+</head>
+<body>
+	<div class="wrap">
+		<ul>
+			<li><a href="#tab1">页签1</a></li>
+			<li><a href="#tab2">页签2</a></li>
+			<li><a href="#tab3">页签3</a></li>
+		</ul>
+
+		<div id="tab1">
+			1
+		</div>
+		<div id="tab2">2</div>
+		<div id="tab3">3</div>
+	</div>
+
+
+	<!-- dialog案例 -->
+	<div class="dialog" title="我是对话框的标题">
+		我是对话框
+	</div>
+</body>
+</html>

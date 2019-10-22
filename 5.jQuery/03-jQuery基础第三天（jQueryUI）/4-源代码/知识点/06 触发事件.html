@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../jquery-1.11.1.min.js"></script>
+    <script>
+        $(function () {
+            /*$("form").on("click","#btnSub", function () {
+                var txtName = $("#txtName").val();
+                if(txtName === "1") {
+                    alert("提交成功");
+                } else {
+                    $("#txtName").val("").triggerHandler("focus");
+                }
+            });*/
+
+            $("#btnSub").click(function () {
+                var txtName = $("#txtName").val();
+                if(txtName === "1") {
+                    alert("提交成功");
+                } else {
+                    $("#txtName").val("").triggerHandler("focus");
+                }
+            });
+
+            //
+            $("#btnTrrigerHanlder").bind("click", function () {
+                //$("#btnSub").trigger("click");
+                $("#btnSub").triggerHandler("click");
+            });
+        });
+    </script>
+</head>
+<body>
+<form action="">
+    <label for="txtName">用户名</label><input type="text" id="txtName"/>
+    <input type="submit" value="提交" id="btnSub"/>
+    <input type="button" value="触发提交" id="btnTrrigerHanlder"/>
+</form>
+</body>
+</html>

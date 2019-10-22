@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>冲突的案例</title>
+	<script>
+		$ = {
+			show: function (argument) {
+				console.log("my $");
+			}
+		}
+	</script>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+		var myJQuery = $.noConflict();
+		jQuery(document).ready(function(){
+			jQuery("div").css("color","red");
+			// $("div").css("color","red"); //$就不能用了
+		});
+
+		$.show("sdf");
+
+	</script>
+</head>
+<body>
+	<div>
+		sfadfsdf
+	</div>
+</body>
+</html>

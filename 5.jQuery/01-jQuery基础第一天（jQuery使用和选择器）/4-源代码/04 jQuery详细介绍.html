@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="jquery-1.11.1.min.js"></script>
+    <script>
+        /*$(document).ready(function () {
+         // var $ = "我是$";
+         /!*$("#btn").click(function () {
+
+         });*!/
+
+         /!*jQuery("#btn").click(function () {
+         console.log("我是jQuery");
+         });*!/
+
+         });*/
+
+        var iQuery = function (dom) {
+//            return {};
+            var obj = {
+                ready: function (func) {
+                    //console.log("我是ready");
+                    //func();
+                    // 判断一下 docuemnt.onload 有没有被赋值（或者说有没有这个事件）
+                    // 1.有：接收一个旧的函数，然后呢，我先去调用新的函数，接着再调用旧的函数
+                    // 2.没有：直接赋值个onload事件
+                    if (typeof dom.onload === "function") {
+                        var oldFunc = dom.onload;
+                        dom.onload = function () {
+                            // 调用新的函数
+                            func();
+                            // 调用旧的函数
+                            oldFunc();
+                        }
+                    } else {
+                        dom.onload = func;
+                    }
+                }
+            };
+
+            return obj;
+        };
+
+        iQuery(window).ready(function () {
+            alert("第一调用");
+        });
+
+        iQuery(window).ready(function () {
+            alert("第二调用");
+        });
+
+
+        var obj = {
+            ready: function () {
+
+            }
+        };
+
+        var obj1 = new Object();
+        obj1.ready = function () {
+
+        };
+
+        //Object.create();
+    </script>
+</head>
+<body>
+<input type="button" value="我是按钮" id="btn"/>
+</body>
+</html>

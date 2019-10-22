@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件对象案例</title>
+	<style>
+	.box {
+		height: 200px;
+		width: 400px;
+		background-color: teal;
+	}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+		jQuery(document).ready(function($) {
+			$(".link").on("click", function(e){
+				//取消默认操作
+				e.preventDefault();
+				//阻止事件冒泡
+				// e.stopPropagation();
+
+				console.log(e.type);
+
+			});//jQuery 1.7 以上
+
+			$(".box").on("click",function(e){
+				console.log("div 事件响应方法执行");
+				// alert("父div盒子被点击了");
+				//怎么实现 ： 当前用户点击的是a标签，还是我自己div呢？
+				if(e.target === this) {
+					console.log("你点击的div");
+				}
+			});
+
+			$(window).click(function(event) {
+				console.log(event.which);
+			}).keydown(function(event) {
+				//输出键盘字母的编码
+				console.log(event.keyCode);
+			});
+		});
+	</script>
+
+</head>
+<body>
+	<div class="box">
+		<a class="link" href="http://web.itcast.cn">传智前端学院</a>
+	</div>
+</body>
+</html>

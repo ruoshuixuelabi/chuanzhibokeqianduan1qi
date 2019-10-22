@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>02元素滚动</title>
+	<style>
+		.wrap {
+			overflow: scroll;
+			width: 100px;
+			height: 100px;
+			border: 1px solid #000;
+		}
+
+		p {
+			width: 400px;
+			height: 400px;
+		}
+	</style>
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+		$(function () {
+			$("#btnSetScroll").on("click", function(event){
+				//获取元素的 滚动的位置
+				var left = $(".wrap").scrollLeft(),
+					top = $(".wrap").scrollTop();
+
+				//设置元素的滚动的位置
+				$(".wrap").scrollLeft(left + 10)
+						.scrollTop(top + 10 );
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="button" value="滚动+10" id="btnSetScroll">
+
+	<div class="wrap">
+		<p>我是文本 传智播客 http://www.itcast.cn </p>
+	</div>
+</body>
+</html>

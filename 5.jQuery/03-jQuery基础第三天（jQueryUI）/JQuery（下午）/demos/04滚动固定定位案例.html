@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动固定定位案例</title>
+	<style>
+		* { padding: 0; margin: 0; }
+		.top, .nav, .main {
+			margin: 0 auto;
+		}
+		.main {
+			width: 1001px;
+		}
+
+		.fixed-top {
+			position: fixed;
+			top: 0;
+			left: 0;
+		}
+	</style>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+		$(function () {
+			//第一步：拿到top的高度
+			var h = $(".top").height();
+			//第二步：绑定windows的滚动事件
+			$(window).scroll(function(event) {
+				var t = $(window).scrollTop();
+				//当windows滚动超过 top的高度，然后把nav进行固定定位
+				if( t > h) {
+					$(".nav").addClass('fixed-top');
+					$(".main").css("marginTop", "83px")//固定定位后高度塌陷,设置margin补齐固定定位的元素高度
+				}else {
+					$(".nav").removeClass('fixed-top');
+					$(".main").css("marginTop", "0")
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="top">
+		<img src="imgs/top.png" height="168" width="1423" alt="">
+	</div>
+	<div class="nav">
+		<img src="imgs/nav.png" height="83" width="1423" alt="">
+	</div>
+	<div class="main">
+		
+		<img src="imgs/main.png" height="2734" width="1001" alt="">
+	</div>
+</body>
+</html>

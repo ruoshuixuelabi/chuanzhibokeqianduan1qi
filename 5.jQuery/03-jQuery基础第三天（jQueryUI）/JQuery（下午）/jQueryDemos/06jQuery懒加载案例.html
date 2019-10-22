@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>懒加载插件案例</title>
+	<style>
+		div {
+			height: 2000px;
+		}
+	</style>
+<!-- 	第一步：引包
+	第二步：　写ｉｍｇ
+	第三步：　lazyload（）方法 -->
+
+	<script src="jquery-1.11.3.min.js"></script>
+	<script src="jquery.lazyload.min.js"></script>
+	<script>
+		$(function () {
+			$(".lazy").lazyload();
+		});
+	</script>
+</head>
+<body>
+	<div>
+		
+	</div>
+	<img class="lazy" data-original = "imgs/1.gif" height"440" width="150" alt="">
+	<img class="lazy" data-original="imgs/2.gif" height="440" width="150" alt="">
+</body>
+</html>

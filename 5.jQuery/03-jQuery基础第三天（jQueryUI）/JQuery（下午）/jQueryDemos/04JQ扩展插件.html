@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery扩展方法</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+		//给jQuery全局对象扩展一个方法
+		$.log = function () {
+			console.log(new Date());
+		};
+
+		// $.each()
+
+		// $.log();
+
+		// 扩展一个普通的jQuery对象的方法
+		$.fn.log = function() {
+			console.log($(this).text());
+
+			//输出所有的 评论组件的所有的代码。
+			return "<ul></ul>"
+		};
+
+		$(function(){
+			$("div").log();
+		});
+	</script>
+</head>
+<body>
+	<div>
+		sdjlsjdf 
+	</div>
+</body>
+</html>

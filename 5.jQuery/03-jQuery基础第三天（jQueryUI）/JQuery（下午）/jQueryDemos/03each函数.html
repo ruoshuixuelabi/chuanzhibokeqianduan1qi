@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>each和 map函数的使用案例</title>
+	<script src="jquery-1.11.3.min.js"></script>
+	<script>
+	
+		jQuery(document).ready(function($) {
+			// $("li").each(function(index, el) {
+
+			// 	var originTxt = $(el).text();
+
+			// 	$(el).text(originTxt + index);
+			// });
+
+			$.each($("li"), function(i, e) {
+				var originTxt = $(e).text();
+
+				$(e).text(originTxt + i+1);
+
+			});
+
+			//map函数： 会把所有的
+			// 全局的map 函数 参数 跟 jQuery对象的参数是反的。
+			var temp = $.map($("li"), function(elme, index) {
+				return index;
+			});
+
+			var temp2 = $("li").map(function(i, e){
+				console.log(i);
+				return i;
+			});
+
+		});
+
+	</script>
+
+</head>
+<body>
+	<ul>
+		<li>传智播客</li>
+		<li>传智播客</li>
+		<li>传智播客</li>
+		<li>传智播客</li>
+	</ul>
+</body>
+</html>
